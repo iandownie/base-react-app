@@ -1,0 +1,469 @@
+@import './variables/canon';
+@import './variables/selectors';
+
+@mixin pretty-scrollbar() {
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    height: $space-200;
+    width: $space-200;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: getColor(--contrast-light);
+    border: 2px solid getColor(--bg);
+    border-radius: 7px;
+  }
+}
+
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin font-face($family, $path, $style: normal, $weight: $font-regular) {
+  @font-face {
+    font-family: $family;
+    src: url('#{$path}.eot');
+    src: url('#{$path}.eot?#iefix') format('embedded-opentype'),
+      url('#{$path}.woff2') format('woff2'), url('#{$path}.woff') format('woff'),
+      url('#{$path}.ttf') format('truetype');
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
+
+@mixin word-wrap-ellipsis {
+  @content;
+  @include truncate();
+}
+
+@mixin clickable {
+  cursor: pointer;
+  &[disabled],
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+@function getColor($variable, $opacity: -1) {
+  @if ($opacity == -1) {
+    @return var($variable);
+  }
+  @return wrapRGB($variable, $opacity);
+}
+@function wrapRGB($variable, $opacity: 1) {
+  @return rgba(var($variable), $opacity);
+}
+@function getSCSSColor($variable, $opacity: 1) {
+  @return 'rgb(#{$variable}, #{$opacity})';
+}
+@mixin applyColors() {
+  background-color: getColor(--bg);
+  color: getColor(--contrast-main);
+  border-color: getColor(--border-color);
+}
+$colorFormats: (
+  0: raw-,
+  1: '',
+);
+
+$emphases: (
+  0: light,
+  1: strong,
+  2: strongest,
+);
+
+$contrasts: (
+  0: main,
+  1: alternate,
+  2: highlight,
+  3: light,
+  4: disabled,
+  5: warning,
+  6: confirm,
+  7: error,
+  8: chart,
+);
+
+@function getFormattedColor($format, $color) {
+  @if ($format == raw-) {
+    @return var(#{$color});
+  }
+  @return wrapRGB(#{$color});
+}
+
+@mixin context-variables($brightness, $context) {
+  --brightness: #{$brightness};
+  @each $index, $format in $colorFormats {
+    --#{$format}bg: #{getFormattedColor(
+        #{$format},
+        --#{$brightness}-#{$context}-color-bg
+      )};
+    @each $contrastI, $contrast in $contrasts {
+      --#{$format}contrast-#{$contrast}: #{getFormattedColor(
+          #{$format},
+          --#{$brightness}-#{$context}-color-contrast-#{$contrast}
+        )};
+    }
+    @each $idx, $strength in $emphases {
+      --#{$format}bg-emphasis-#{$strength}: #{getFormattedColor(
+          #{$format},
+          --#{$brightness}-#{$context}-color-bg-emphasis-#{$strength}
+        )};
+      --#{$format}contrast-emphasis-#{$strength}: #{getFormattedColor(
+          #{$format},
+          --#{$brightness}-#{$context}-color-contrast-emphasis-#{$strength}
+        )};
+    }
+    @each $index, $val in $bright-chart-colors {
+      --#{$format}chart-#{$index}: #{getFormattedColor(
+          #{$format},
+          --#{$brightness}-color-chart-#{$index}
+        )};
+    }
+  }
+  --focus: #{wrapRGB(--#{$brightness}-#{$context}-focus)};
+  --border-color: #{wrapRGB(--#{$brightness}-#{$context}-border-color)};
+  --border-color-light: #{wrapRGB(
+      --#{$brightness}-#{$context}-border-color-light
+    )};
+  --border: #{var(--border-width)} solid #{getColor(--border-color)};
+  --box-shadow: 0px 0px #{$box-shadow-small} #{var(
+      --#{$brightness}-#{$context}-shadow-color-small
+    )};
+  --box-shadow-medium: 0px 0px #{$box-shadow-medium} #{var(
+      --#{$brightness}-#{$context}-shadow-color-medium
+    )};
+  --box-shadow-large: 0px 0px #{$box-shadow-large} #{var(
+      --#{$brightness}-#{$context}-shadow-color-large
+    )};
+  --box-shadow-inset: inset 0px 0px #{$box-shadow-small} #{var(
+      --#{$brightness}-#{$context}-shadow-color-inset
+    )};
+  --accent: #{wrapRGB(--#{$brightness}-#{$context}-color-accent)};
+}
+// Valid contexts: backdrop, surface, selection, gradient
+@mixin context($context, $apply: false) {
+  --context: #{$context};
+  @include context-variables(bright, $context);
+  #{$dark-mode} {
+    @include context-variables(dark, $context);
+  }
+  @if $apply {
+    @include applyColors();
+  }
+}
+
+// Valid $strength: light, strong, strongest
+@mixin applyEmphasis($strength) {
+  background-color: var(--bg-emphasis-#{$strength});
+  color: var(--contrast-emphasis-#{$strength});
+}
+
+@mixin setCanon() {
+  --border-radius: 5px;
+  --border-radius-large: 10px;
+  --border-radius-small: 3px;
+  --border-width: 1px;
+  --font-family: #{'Nunito', sans-serif};
+  @each $key, $val in $bright-chart-colors {
+    --bright-color-chart-#{$key}: #{$val};
+  }
+  @each $key, $val in $dark-chart-colors {
+    --dark-color-chart-#{$key}: #{$val};
+  }
+
+  --bright-chart-contrast: #{$N1-color};
+  --dark-chart-contrast: #{$N7-color};
+  --bright-chart-border-main: #{$N4-color};
+  --dark-chart-border-main: #{$N4-color};
+  --bright-chart-border-light: #{$N6-color};
+  --dark-chart-border-light: #{$N3-color};
+  --bright-chart-negative-accent: #{$E2-color};
+  --dark-chart-negative-accent: #{$E2-color};
+  --bright-chart-positive-accent: #{$C2-color};
+  --dark-chart-positive-accent: #{$C2-color};
+  --bright-chart-negative-bg: #{$E3-color};
+  --dark-chart-negative-bg: #{$N1-color};
+  --bright-chart-positive-bg: #{$C3-color};
+  --dark-chart-positive-bg: #{$N1-color};
+
+  --bright-backdrop-shadow-color-small: #{$bright-backdrop-shadow-color-small};
+  --bright-backdrop-shadow-color-medium: #{$bright-backdrop-shadow-color-medium};
+  --bright-backdrop-shadow-color-large: #{$bright-backdrop-shadow-color-large};
+  --bright-backdrop-shadow-color-inset: #{$bright-backdrop-shadow-color-inset};
+
+  --dark-backdrop-shadow-color-small: #{$dark-backdrop-shadow-color-small};
+  --dark-backdrop-shadow-color-medium: #{$dark-backdrop-shadow-color-medium};
+  --dark-backdrop-shadow-color-large: #{$dark-backdrop-shadow-color-large};
+  --dark-backdrop-shadow-color-inset: #{$dark-backdrop-shadow-color-inset};
+
+  --bright-surface-shadow-color-small: #{$bright-surface-shadow-color-small};
+  --bright-surface-shadow-color-medium: #{$bright-surface-shadow-color-medium};
+  --bright-surface-shadow-color-large: #{$bright-surface-shadow-color-large};
+  --bright-surface-shadow-color-inset: #{$bright-surface-shadow-color-inset};
+
+  --dark-surface-shadow-color-small: #{$dark-surface-shadow-color-small};
+  --dark-surface-shadow-color-medium: #{$dark-surface-shadow-color-medium};
+  --dark-surface-shadow-color-large: #{$dark-surface-shadow-color-large};
+  --dark-surface-shadow-color-inset: #{$dark-surface-shadow-color-inset};
+
+  --bright-selection-shadow-color-small: #{$bright-selection-shadow-color-small};
+  --bright-selection-shadow-color-medium: #{$bright-selection-shadow-color-medium};
+  --bright-selection-shadow-color-large: #{$bright-selection-shadow-color-large};
+  --bright-selection-shadow-color-inset: #{$bright-selection-shadow-color-inset};
+
+  --dark-selection-shadow-color-small: #{$dark-selection-shadow-color-small};
+  --dark-selection-shadow-color-medium: #{$dark-selection-shadow-color-medium};
+  --dark-selection-shadow-color-large: #{$dark-selection-shadow-color-large};
+  --dark-selection-shadow-color-inset: #{$dark-selection-shadow-color-inset};
+
+  --bright-backdrop-color-bg: #{$bright-backdrop-color-bg};
+  --bright-backdrop-color-contrast-highlight: #{$bright-backdrop-color-contrast-highlight};
+  --bright-backdrop-color-contrast-main: #{$bright-backdrop-color-contrast-main};
+  --bright-backdrop-color-contrast-alternate: #{$bright-backdrop-color-contrast-alternate};
+  --bright-backdrop-color-contrast-light: #{$bright-backdrop-color-contrast-light};
+  --bright-backdrop-color-contrast-disabled: #{$bright-backdrop-color-contrast-disabled};
+  --bright-backdrop-color-contrast-warning: #{$bright-backdrop-color-contrast-warning};
+  --bright-backdrop-color-contrast-error: #{$bright-backdrop-color-contrast-error};
+  --bright-backdrop-color-contrast-confirm: #{$bright-backdrop-color-contrast-confirm};
+  --bright-backdrop-color-bg-emphasis-light: #{$bright-backdrop-color-bg-emphasis-light};
+  --bright-backdrop-color-bg-emphasis-strong: #{$bright-backdrop-color-bg-emphasis-strong};
+  --bright-backdrop-color-bg-emphasis-strongest: #{$bright-backdrop-color-bg-emphasis-strongest};
+  --bright-backdrop-color-contrast-emphasis-light: #{$bright-backdrop-color-contrast-emphasis-light};
+  --bright-backdrop-color-contrast-emphasis-strong: #{$bright-backdrop-color-contrast-emphasis-strong};
+  --bright-backdrop-color-contrast-emphasis-strongest: #{$bright-backdrop-color-contrast-emphasis-strongest};
+  --bright-backdrop-border-color: #{$bright-backdrop-border-color};
+  --bright-backdrop-border-color-light: #{$bright-backdrop-border-color-light};
+  --bright-backdrop-focus: #{$bright-backdrop-focus};
+
+  --dark-backdrop-color-bg: #{$dark-backdrop-color-bg};
+  --dark-backdrop-color-contrast-highlight: #{$dark-backdrop-color-contrast-highlight};
+  --dark-backdrop-color-contrast-main: #{$dark-backdrop-color-contrast-main};
+  --dark-backdrop-color-contrast-alternate: #{$dark-backdrop-color-contrast-alternate};
+  --dark-backdrop-color-contrast-light: #{$dark-backdrop-color-contrast-light};
+  --dark-backdrop-color-contrast-disabled: #{$dark-backdrop-color-contrast-disabled};
+  --dark-backdrop-color-contrast-warning: #{$dark-backdrop-color-contrast-warning};
+  --dark-backdrop-color-contrast-error: #{$dark-backdrop-color-contrast-error};
+  --dark-backdrop-color-contrast-confirm: #{$dark-backdrop-color-contrast-confirm};
+  --dark-backdrop-color-bg-emphasis-light: #{$dark-backdrop-color-bg-emphasis-light};
+  --dark-backdrop-color-bg-emphasis-strong: #{$dark-backdrop-color-bg-emphasis-strong};
+  --dark-backdrop-color-bg-emphasis-strongest: #{$dark-backdrop-color-bg-emphasis-strongest};
+  --dark-backdrop-color-contrast-emphasis-light: #{$dark-backdrop-color-contrast-emphasis-light};
+  --dark-backdrop-color-contrast-emphasis-strong: #{$dark-backdrop-color-contrast-emphasis-strong};
+  --dark-backdrop-color-contrast-emphasis-strongest: #{$dark-backdrop-color-contrast-emphasis-strongest};
+  --dark-backdrop-focus: #{$dark-backdrop-focus};
+
+  --dark-backdrop-border-color: #{$dark-backdrop-border-color};
+  --dark-backdrop-border-color-light: #{$dark-backdrop-border-color-light};
+
+  --bright-surface-color-bg: #{$bright-surface-color-bg};
+  --bright-surface-color-contrast-highlight: #{$bright-surface-color-contrast-highlight};
+  --bright-surface-color-contrast-main: #{$bright-surface-color-contrast-main};
+  --bright-surface-color-contrast-alternate: #{$bright-surface-color-contrast-alternate};
+  --bright-surface-color-contrast-light: #{$bright-surface-color-contrast-light};
+  --bright-surface-color-contrast-disabled: #{$bright-surface-color-contrast-disabled};
+  --bright-surface-color-contrast-warning: #{$bright-surface-color-contrast-warning};
+  --bright-surface-color-contrast-error: #{$bright-surface-color-contrast-error};
+  --bright-surface-color-accent: #{$bright-surface-color-accent};
+  --bright-surface-color-bg-emphasis-light: #{$bright-surface-color-bg-emphasis-light};
+  --bright-surface-color-bg-emphasis-strong: #{$bright-surface-color-bg-emphasis-strong};
+  --bright-surface-color-bg-emphasis-strongest: #{$bright-surface-color-bg-emphasis-strongest};
+  --bright-surface-focus: #{$bright-surface-focus};
+
+  --bright-surface-color-contrast-emphasis-light: #{$bright-surface-color-contrast-emphasis-light};
+  --bright-surface-color-contrast-emphasis-strong: #{$bright-surface-color-contrast-emphasis-strong};
+  --bright-surface-color-contrast-emphasis-strongest: #{$bright-surface-color-contrast-emphasis-strongest};
+
+  --bright-surface-border-color: #{$bright-surface-border-color};
+  --bright-surface-border-color-light: #{$bright-surface-border-color-light};
+
+  --dark-surface-color-bg: #{$dark-surface-color-bg};
+  --dark-surface-color-contrast-highlight: #{$dark-surface-color-contrast-highlight};
+  --dark-surface-color-contrast-main: #{$dark-surface-color-contrast-main};
+  --dark-surface-color-contrast-alternate: #{$dark-surface-color-contrast-alternate};
+  --dark-surface-color-contrast-light: #{$dark-surface-color-contrast-light};
+  --dark-surface-color-contrast-disabled: #{$dark-surface-color-contrast-disabled};
+  --dark-surface-color-contrast-warning: #{$dark-surface-color-contrast-warning};
+  --dark-surface-color-contrast-error: #{$dark-surface-color-contrast-error};
+  --dark-surface-color-accent: #{$dark-surface-color-accent};
+  --dark-surface-color-bg-emphasis-light: #{$dark-surface-color-bg-emphasis-light};
+  --dark-surface-color-bg-emphasis-strong: #{$dark-surface-color-bg-emphasis-strong};
+  --dark-surface-color-bg-emphasis-strongest: #{$dark-surface-color-bg-emphasis-strongest};
+  --dark-surface-focus: #{$dark-surface-focus};
+
+  --dark-surface-color-contrast-emphasis-light: #{$dark-surface-color-contrast-emphasis-light};
+  --dark-surface-color-contrast-emphasis-strong: #{$dark-surface-color-contrast-emphasis-strong};
+  --dark-surface-color-contrast-emphasis-strongest: #{$dark-surface-color-contrast-emphasis-strongest};
+
+  --dark-surface-border-color: #{$dark-surface-border-color};
+  --dark-surface-border-color-light: #{$dark-surface-border-color-light};
+
+  --bright-selection-color-bg: #{$bright-selection-color-bg};
+  --bright-selection-color-contrast-highlight: #{$bright-selection-color-contrast-highlight};
+  --bright-selection-color-contrast-main: #{$bright-selection-color-contrast-main};
+  --bright-selection-color-contrast-alternate: #{$bright-selection-color-contrast-alternate};
+  --bright-selection-color-contrast-light: #{$bright-selection-color-contrast-light};
+  --bright-selection-color-contrast-disabled: #{$bright-selection-color-contrast-disabled};
+  --bright-selection-border-color: #{$bright-selection-color-bg};
+  --bright-selection-focus: #{$bright-selection-focus};
+
+  --dark-selection-color-bg: #{$dark-selection-color-bg};
+  --dark-selection-color-contrast-highlight: #{$dark-selection-color-contrast-highlight};
+  --dark-selection-color-contrast-main: #{$dark-selection-color-contrast-main};
+  --dark-selection-color-contrast-alternate: #{$dark-selection-color-contrast-alternate};
+  --dark-selection-color-contrast-light: #{$dark-selection-color-contrast-light};
+  --dark-selection-color-contrast-disabled: #{$dark-selection-color-contrast-disabled};
+  --dark-selection-color-contrast-emphasis-light: #{$dark-selection-color-bg};
+  --dark-selection-color-bg-emphasis-light: #{$dark-selection-color-contrast-main};
+  --dark-selection-color-contrast-emphasis-strong: #{$dark-selection-color-bg};
+  --dark-selection-color-bg-emphasis-strong: #{$dark-selection-color-contrast-main};
+  --dark-selection-border-color: #{$dark-selection-color-bg};
+  --dark-selection-focus: #{$dark-selection-focus};
+
+  --bright-gradient-color-bg: #{$bright-gradient-color-bg};
+  --bright-gradient-color-contrast-main: #{$bright-gradient-color-contrast-main};
+  --bright-gradient-color-bg-emphasis-light: #{$bright-gradient-color-bg-emphasis-light};
+  --bright-gradient-color-contrast-emphasis-light: #{$bright-gradient-color-contrast-emphasis-light};
+  --bright-gradient-color-bg-emphasis-strong: #{$bright-gradient-color-bg-emphasis-strong};
+  --bright-gradient-color-contrast-emphasis-strong: #{$bright-gradient-color-contrast-emphasis-strong};
+  --bright-gradient-focus: #{$bright-gradient-focus};
+
+  --dark-gradient-color-bg: #{$dark-gradient-color-bg};
+  --dark-gradient-color-contrast-main: #{$dark-gradient-color-contrast-main};
+  --dark-gradient-color-bg-emphasis-light: #{$dark-gradient-color-bg-emphasis-light};
+  --dark-gradient-color-contrast-emphasis-light: #{$dark-gradient-color-contrast-emphasis-light};
+  --dark-gradient-color-bg-emphasis-strong: #{$dark-gradient-color-bg-emphasis-strong};
+  --dark-gradient-color-contrast-emphasis-strong: #{$dark-gradient-color-contrast-emphasis-strong};
+  --dark-gradient-focus: #{$dark-gradient-focus};
+
+  --bright-confirmation-color-bg: #{$bright-confirmation-color-bg};
+  --bright-confirmation-color-contrast-highlight: #{$bright-confirmation-color-contrast-highlight};
+  --bright-confirmation-color-contrast-main: #{$bright-confirmation-color-contrast-main};
+  --bright-confirmation-color-accent: #{$bright-confirmation-color-accent};
+
+  --dark-confirmation-color-bg: #{$dark-confirmation-color-bg};
+  --dark-confirmation-color-contrast-highlight: #{$dark-confirmation-color-contrast-highlight};
+  --dark-confirmation-color-contrast-main: #{$dark-confirmation-color-contrast-main};
+  --dark-confirmation-color-accent: #{$dark-confirmation-color-accent};
+
+  --bright-warning-color-bg: #{$bright-warning-color-bg};
+  --bright-warning-color-contrast-highlight: #{$bright-warning-color-contrast-highlight};
+  --bright-warning-color-contrast-main: #{$bright-warning-color-contrast-main};
+  --bright-warning-color-accent: #{$bright-warning-color-accent};
+  --bright-warning-border-color: #{$bright-warning-color-accent};
+
+  --dark-warning-color-bg: #{$dark-warning-color-bg};
+  --dark-warning-color-contrast-highlight: #{$dark-warning-color-contrast-highlight};
+  --dark-warning-color-contrast-main: #{$dark-warning-color-contrast-main};
+  --dark-warning-color-accent: #{$dark-warning-color-accent};
+  --dark-warning-border-color: #{$dark-warning-color-accent};
+
+  --bright-error-color-bg: #{$bright-error-color-bg};
+  --bright-error-color-contrast-highlight: #{$bright-error-color-contrast-highlight};
+  --bright-error-color-contrast-main: #{$bright-error-color-contrast-main};
+  --bright-error-color-accent: #{$bright-error-color-accent};
+  --bright-error-border-color: #{$bright-error-color-accent};
+
+  --dark-error-color-bg: #{$dark-error-color-bg};
+  --dark-error-color-contrast-highlight: #{$dark-error-color-contrast-highlight};
+  --dark-error-color-contrast-main: #{$dark-error-color-contrast-main};
+  --dark-error-color-accent: #{$dark-error-color-accent};
+  --dark-error-border-color: #{$dark-error-color-accent};
+
+  --bright-info-color-bg: #{$bright-info-color-bg};
+  --bright-info-color-contrast-highlight: #{$bright-info-color-contrast-highlight};
+  --bright-info-color-contrast-main: #{$bright-info-color-contrast-main};
+  --bright-info-color-contrast-warning: #{$bright-info-color-contrast-warning};
+  --bright-info-color-contrast-confirm: #{$bright-info-color-contrast-confirm};
+  --bright-info-color-contrast-error: #{$bright-info-color-contrast-error};
+  --bright-info-color-accent: #{$bright-info-color-accent};
+  --bright-info-border-color: #{$bright-info-color-accent};
+
+  --dark-info-color-bg: #{$dark-info-color-bg};
+  --dark-info-color-contrast-highlight: #{$dark-info-color-contrast-highlight};
+  --dark-info-color-contrast-main: #{$dark-info-color-contrast-main};
+  --dark-info-color-contrast-warning: #{$dark-info-color-contrast-warning};
+  --dark-info-color-contrast-confirm: #{$dark-info-color-contrast-confirm};
+  --dark-info-color-contrast-error: #{$dark-info-color-contrast-error};
+  --dark-info-color-accent: #{$dark-info-color-accent};
+  --dark-info-border-color: #{$dark-info-color-accent};
+}
+
+@mixin focus {
+  border: 1px solid transparent;
+  &:focus-visible {
+    border-color: var(--focus);
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+$textStyles: display, heading, body, body-bold, caps-large, caps-large-bold,
+  caps-medium, caps-small;
+// Accepts any of the above text styles
+@mixin textStyle($style) {
+  @if not list.index($textStyles, $style) {
+    @error "#{$style} is not a valid text style. Expected one of #{$textStyles}.";
+  }
+  @if (0 == list.index($textStyles, $style)) {
+    font-size: $text-display-size;
+    line-height: $text-display-line-height;
+    font-weight: $font-semibold;
+  }
+  @if (1 == list.index($textStyles, $style)) {
+    font-size: $text-heading-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-semibold;
+  }
+  @if (2 == list.index($textStyles, $style)) {
+    font-size: $text-body-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-regular;
+  }
+  @if (3 == list.index($textStyles, $style)) {
+    font-size: $text-body-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-semibold;
+  }
+  @if (4 == list.index($textStyles, $style)) {
+    font-size: $text-body-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-bold;
+  }
+  @if (5 == list.index($textStyles, $style)) {
+    font-size: $text-body-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-regular;
+    text-transform: uppercase;
+  }
+  @if (6 == list.index($textStyles, $style)) {
+    font-size: $text-body-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+  }
+  @if (7 == list.index($textStyles, $style)) {
+    font-size: $text-caps-medium-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-bold;
+    text-transform: uppercase;
+  }
+  @if (8 == list.index($textStyles, $style)) {
+    font-size: $text-caps-small-size;
+    line-height: $text-heading-line-height;
+    font-weight: $font-regular;
+    text-transform: uppercase;
+  }
+}

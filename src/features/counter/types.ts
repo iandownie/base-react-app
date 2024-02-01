@@ -7,9 +7,3 @@ interface DecrementCounterAction {
   type: typeof DECREMENT_COUNTER
 }
 export type CounterActionTypes = IncrementCounterAction | DecrementCounterAction
-
-export interface SystemState {
-  count: {
-    value: number
-  }
-}

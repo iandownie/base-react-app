@@ -1,0 +1,67 @@
+@use "sass:meta";
+@use "sass:list";
+@use "sass:map";
+
+@import '../../../styles/mixins';
+@import '../../../styles/globals/reset';
+@import '../../../styles/common';
+@import '../../../styles/globals/typography';
+
+@layer defaults {
+  :global {
+    html,
+    body {
+      // Using percentages relates to the browser's font-size settings, so users can
+      // ask for large fonts and the like. 100% matches the default font-size, while
+      // 150% matches 1.5 spacing.
+      font-size: 100%;
+      line-height: 150%;
+      --mode: light;
+      &[class*='dark-mode'] {
+        --mode: dark;
+      }
+    }
+
+    html {
+      overflow-y: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body {
+      width: 100vw;
+      @include context(backdrop, true);
+    }
+    ::-webkit-scrollbar-corner {
+      background-color: transparent;
+    }
+    input,
+    textarea,
+    select {
+      font-family: var(--font-family);
+    }
+    textarea {
+      background: getColor(--bg-high-contrast);
+      border-radius: var(--border-radius);
+      border: var(--border);
+      color: inherit;
+    }
+
+    #root {
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .container {
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: $space-800;
+      margin: auto;
+      max-width: 600px;
+      @include context(surface, true);
+    }
+  }
+}

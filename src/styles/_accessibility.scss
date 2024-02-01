@@ -1,0 +1,19 @@
+@mixin for-screen-reader {
+  position: absolute;
+  left: -10000px;
+  padding: 0;
+  height: 1%;
+  width: 1%;
+  overflow: hidden;
+  top: 0;
+}
+
+@mixin for-screen-reader-inline {
+  position: relative;
+  left: -10000px;
+  padding: 0;
+  height: 1%;
+  width: 1%;
+  overflow: hidden;
+  display: inline-block;
+}

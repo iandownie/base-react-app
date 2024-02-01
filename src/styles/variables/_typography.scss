@@ -1,0 +1,56 @@
+@import "./selectors";
+
+$default-line-height: 1.5rem;
+$multiline-line-height: 1.125rem;
+$default-font-size: 0.875rem;
+
+$alt-font-size: 0.85rem;
+$alt2-font-size: 0.75rem;
+$heading-font-size: 1rem;
+$label-font-size: 1.2rem;
+$header-font-size: 1.375rem;
+
+// icon sizes
+$icon-size-tiny: 0.5rem;
+$icon-size-small: 0.75rem;
+$icon-size: 1rem;
+$icon-size-large: 1.25rem;
+$icon-size-xlarge: 1.875rem;
+
+$checkbox-size: 1.125rem;
+
+// The following were converted from the line-height sizes so that everything is percentage based.
+$h1-font-size: 3.75rem;
+$h2-font-size: 3.125rem;
+$h3-font-size: 1.25rem;
+$h4-font-size: 1.125rem;
+$h5-font-size: 1.25rem;
+$h6-font-size: $default-font-size;
+
+$h1-line-height: 4.375rem;
+$h2-line-height: 3.75rem;
+$h3-line-height: 1.5rem;
+$h4-line-height: 2.5rem;
+$h5-line-height: 1.875rem;
+$h6-line-height: 1.75rem;
+
+$font-xlight: 100;
+$font-light: 300;
+$font-regular: 400;
+$font-semibold: 600;
+$font-bold: 700;
+$font-xbold: 900;
+
+$text-display-size: 1.375rem; // 22px;
+$text-heading-size: 1rem; // 16px;
+$text-body-size: 0.875rem; // 14px;
+$text-caps-large-size: 0.875rem; // 14px;
+$text-caps-medium-size: 0.75rem; // 12px;
+$text-caps-small-size: 0.6875rem; // 11px;
+
+$text-display-line-height: 1.5rem; // 24px;
+$text-heading-line-height: 1.125rem; // 18px;
+$text-body-line-height: 1.125rem; // 18px;
+$text-caps-large-line-height: 1.125rem; // 18px;
+$text-caps-medium-line-height: 1.125rem; // 18px;
+$text-caps-small-line-height: 1.125rem; // 18px;

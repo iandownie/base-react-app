@@ -1,0 +1,100 @@
+@import '../mixins';
+
+@include font-face('Lato', '../styles/fonts/Lato-Light', normal, 300);
+@include font-face('Lato', '../styles/fonts/Lato-Regular', normal, 400);
+@include font-face('Lato', '../styles/fonts/Lato-Bold', normal, 700);
+@include font-face('Lato', '../styles/fonts/Lato-Black', normal, 900);
+@include font-face('Lato', '../styles/fonts/Lato-LightItalic', italic, 300);
+@include font-face('Lato', '../styles/fonts/Lato-Italic', italic, 400);
+@include font-face('Lato', '../styles/fonts/Lato-BoldItalic', italic, 700);
+@include font-face('Lato', '../styles/fonts/Lato-BlackItalic', italic, 900);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-200',
+  normal,
+  200
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-200italic',
+  italic,
+  200
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-300',
+  normal,
+  300
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-300italic',
+  italic,
+  300
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-600',
+  normal,
+  600
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-600italic',
+  italic,
+  600
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-700',
+  normal,
+  700
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-700italic',
+  italic,
+  700
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-800',
+  normal,
+  800
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-800italic',
+  italic,
+  800
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-900',
+  normal,
+  900
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-900italic',
+  italic,
+  900
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-italic',
+  italic,
+  normal
+);
+@include font-face(
+  'Nunito',
+  '../styles/fonts/nunito-v16-latin-regular',
+  normal,
+  normal
+);
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/icon?family=Material+Icons'); /* For IE6-8 */
+}

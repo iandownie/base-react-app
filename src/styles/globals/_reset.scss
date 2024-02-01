@@ -1,0 +1,568 @@
+@import '../common';
+/*** Global | CSS Reset */
+
+$slider-handle-size: 12px;
+$slider-width: 4px;
+//colors
+$color_celeste_approx: #ccc;
+
+@layer resets {
+  %extend_1 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    outline: none;
+    font-family: var(--font-family);
+  }
+
+  %extend_2 {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+  }
+
+  %extend_3 {
+    content: ' ';
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  :global {
+    html {
+      @extend %extend_1;
+
+      box-sizing: border-box;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    a:-webkit-any-link:focus-visible {
+      outline: none;
+    }
+    body {
+      * {
+        @include pretty-scrollbar();
+      }
+
+      @extend %extend_1;
+      *::selection {
+        @include context(selection, true);
+      }
+      font-size: $default-font-size;
+      --size-width-right-sidebar: 342px;
+      --size-width-nav-column: 75px;
+      --pointer-space: 15px;
+      @include setCanon();
+      div {
+        @extend %extend_1;
+      }
+    }
+
+    span {
+      @extend %extend_1;
+    }
+
+    object {
+      @extend %extend_1;
+
+      max-width: 100%;
+    }
+
+    iframe {
+      @extend %extend_1;
+    }
+
+    h1 {
+      @extend %extend_1;
+    }
+
+    h2 {
+      @extend %extend_1;
+    }
+
+    h3 {
+      @extend %extend_1;
+    }
+
+    h4 {
+      @extend %extend_1;
+    }
+
+    h5 {
+      @extend %extend_1;
+    }
+
+    h6 {
+      @extend %extend_1;
+    }
+
+    p {
+      @extend %extend_1;
+    }
+
+    blockquote {
+      @extend %extend_1;
+
+      quotes: none;
+
+      &:before {
+        content: '';
+        content: none;
+      }
+
+      &:after {
+        content: '';
+        content: none;
+      }
+    }
+
+    pre {
+      @extend %extend_1;
+
+      white-space: pre;
+      white-space: pre-wrap;
+      white-space: pre-line;
+      word-wrap: break-word;
+      font-family: var(--font-family);
+    }
+
+    abbr {
+      @extend %extend_1;
+    }
+
+    address {
+      @extend %extend_1;
+    }
+
+    cite {
+      @extend %extend_1;
+    }
+
+    code {
+      @extend %extend_1;
+
+      font-family: var(--font-family);
+    }
+
+    del {
+      @extend %extend_1;
+
+      text-decoration: line-through;
+    }
+
+    dfn {
+      @extend %extend_1;
+    }
+
+    em {
+      @extend %extend_1;
+    }
+
+    img {
+      @extend %extend_1;
+
+      max-width: 100%;
+    }
+
+    ins {
+      @extend %extend_1;
+    }
+
+    kbd {
+      @extend %extend_1;
+
+      font-family: var(--font-family);
+    }
+
+    q {
+      @extend %extend_1;
+
+      quotes: none;
+
+      &:before {
+        content: '';
+        content: none;
+      }
+
+      &:after {
+        content: '';
+        content: none;
+      }
+    }
+
+    samp {
+      @extend %extend_1;
+
+      font-family: var(--font-family);
+    }
+
+    small {
+      @extend %extend_1;
+
+      font-size: 85%;
+    }
+
+    strong {
+      @extend %extend_1;
+
+      font-weight: $font-bold;
+    }
+
+    sub {
+      @extend %extend_1;
+
+      @extend %extend_2;
+
+      bottom: -0.25em;
+    }
+
+    sup {
+      @extend %extend_1;
+
+      @extend %extend_2;
+
+      top: -0.5em;
+    }
+
+    var {
+      @extend %extend_1;
+    }
+
+    b {
+      @extend %extend_1;
+    }
+
+    i {
+      @extend %extend_1;
+    }
+
+    dl {
+      @extend %extend_1;
+    }
+
+    dt {
+      @extend %extend_1;
+    }
+
+    dd {
+      @extend %extend_1;
+    }
+
+    ol {
+      @extend %extend_1;
+    }
+
+    ul {
+      @extend %extend_1;
+
+      list-style: none;
+    }
+
+    li {
+      @extend %extend_1;
+    }
+
+    fieldset {
+      @extend %extend_1;
+    }
+
+    form {
+      @extend %extend_1;
+    }
+
+    label {
+      @extend %extend_1;
+
+      cursor: pointer;
+    }
+
+    legend {
+      @extend %extend_1;
+    }
+
+    table {
+      @extend %extend_1;
+
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-size: inherit;
+      font: 100%;
+    }
+
+    caption {
+      @extend %extend_1;
+    }
+
+    tbody {
+      @extend %extend_1;
+    }
+
+    tfoot {
+      @extend %extend_1;
+    }
+
+    thead {
+      @extend %extend_1;
+    }
+
+    tr {
+      @extend %extend_1;
+    }
+
+    th {
+      @extend %extend_1;
+
+      font-weight: $font-bold;
+      vertical-align: bottom;
+    }
+
+    td {
+      @extend %extend_1;
+
+      font-weight: $font-regular;
+      vertical-align: top;
+      vertical-align: top;
+
+      img {
+        vertical-align: top;
+      }
+    }
+
+    article {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    aside {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    figure {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    footer {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    header {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    menu {
+      @extend %extend_1;
+    }
+
+    nav {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    section {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    time {
+      @extend %extend_1;
+    }
+
+    mark {
+      @extend %extend_1;
+    }
+
+    audio {
+      @extend %extend_1;
+    }
+
+    video {
+      @extend %extend_1;
+    }
+
+    details {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    summary {
+      @extend %extend_1;
+
+      display: block;
+    }
+
+    * {
+      //Instead of the line below you could use @includebox-sizing($bs)
+      box-sizing: inherit;
+
+      &:before {
+        //Instead of the line below you could use @includebox-sizing($bs)
+        box-sizing: inherit;
+      }
+
+      &:after {
+        //Instead of the line below you could use @includebox-sizing($bs)
+        box-sizing: inherit;
+      }
+    }
+
+    embed {
+      max-width: 100%;
+    }
+
+    a {
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+      background: transparent;
+      color: getColor(--contrast-highlight);
+      @include focus();
+    }
+
+    abbr[title] {
+      border-bottom: 1px dotted black;
+      cursor: help;
+    }
+
+    dfn[title] {
+      border-bottom: 1px dotted black;
+      cursor: help;
+    }
+
+    hr {
+      display: block;
+      height: 1px;
+      border: 0;
+      border-top: 1px solid $color_celeste_approx;
+      margin: 1em 0;
+      padding: 0;
+    }
+
+    input {
+      vertical-align: middle;
+      font: 99%;
+      margin: 0;
+      @include context(backdrop);
+      background-color: getColor(--bg);
+      color: getColor(--contrast-main);
+
+      &::-webkit-input-placeholder {
+        color: getColor(--contrast-light);
+        font-style: italic;
+      }
+    }
+
+    select {
+      vertical-align: middle;
+      font: 99%;
+      margin: 0;
+    }
+
+    input[type='radio'] {
+      vertical-align: text-bottom;
+    }
+
+    input[type='checkbox'] {
+      vertical-align: text-bottom;
+    }
+
+    .ie7 {
+      input[type='checkbox'] {
+        vertical-align: baseline;
+      }
+    }
+
+    textarea {
+      font: 99%;
+      margin: 0;
+    }
+
+    .clickable {
+      cursor: pointer;
+    }
+
+    input[type='button'] {
+      cursor: pointer;
+      width: auto;
+      overflow: visible;
+      @include focus;
+    }
+
+    input[type='submit'] {
+      cursor: pointer;
+    }
+
+    input[type='file'] {
+      cursor: pointer;
+    }
+
+    button {
+      cursor: pointer;
+      margin: 0;
+      width: auto;
+      overflow: visible;
+      outline: none;
+      @include focus;
+    }
+
+    :focus {
+      outline: none;
+    }
+
+    .clearfix {
+      zoom: 1;
+
+      &:before {
+        @extend %extend_3;
+      }
+
+      &:after {
+        @extend %extend_3;
+
+        clear: both;
+      }
+    }
+
+    .ie6 input {
+      vertical-align: text-bottom;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+  }
+}
+
+@layer libraries {
+  :global {
+    // @include meta.load-css(
+    //   '../../../node_modules/@progress/kendo-theme-default/dist/all.css'
+    // );
+    // @include meta.load-css(
+    //   '../../../node_modules/react-input-range/lib/css/index.css'
+    // );
+    // @include meta.load-css(
+    //   '../../../node_modules/series-11-font-awesome/fontawesome-pro/css/all.min.css'
+    // );
+  }
+}
+
+@layer defaults {
+  :global {
+  }
+}

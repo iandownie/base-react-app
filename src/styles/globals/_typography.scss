@@ -1,0 +1,14 @@
+@import './fonts';
+@import '../variables/typography';
+
+:global {
+  body {
+    font-family: var(--font-family);
+    font-weight: $font-regular;
+    font-size: $default-font-size;
+    line-height: $default-line-height;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}

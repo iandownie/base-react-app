@@ -1,0 +1,15 @@
+@import '../../../styles/common';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $space-200;
+  gap: $space-200;
+  @include context(surface, true);
+  .right {
+    display: flex;
+    gap: $space-200;
+    align-items: center;
+  }
+}

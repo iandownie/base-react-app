@@ -1,0 +1,461 @@
+/*
+ * Style Guide Variables
+*/
+
+// Primary Colors
+$P1-color: 28, 46, 72; /* rgb(28, ​46, 72) */
+$P2-color: 33, 61, 98; /* rgb(33, 61, 98) */
+$P3-color: 38, 112, 187; /* rgb(38, 112, 187) */
+$P4-color: 99, 157, 217; /* rgb(99, 157, 217) */
+$P5-color: 165, 197, 230; /* rgb(165, 197, 230) */
+$P6-color: 216, 229, 243; /* rgb(216, 229, 243) */
+$P7-color: 246, 249, 252; /* rgb(246, 249, 252) */
+
+// Secondary Colors
+$S1-color: 149, 54, 83; /* rgb(149, 54, 83) */
+$S2-color: 187, 84, 115; /* rgb(187, 84, 115) */
+
+// Neutral Colors
+$N1-color: 23, 36, 55; /* rgb(23, 36, 55) */
+$N2-color: 62, 73, 88; /* rgb(62, 73, 88) */
+$N3-color: 100, 109, 122; /* rgb(100, 109, 122) */
+$N4-color: 139, 146, 155; /* rgb(139, 146, 155) */
+$N5-color: 178, 182, 188; /* rgb(178, 182, 188) */
+$N6-color: 216, 219, 222; /* rgb(216, 219, 222) */
+$N7-color: 255, 255, 255; /* rgb(255, 255, 255) */
+
+// Tertiary Colors
+$C1-color: 43, 128, 35; /* rgb(43, 128, 35) */
+$C2-color: 114, 205, 106; /* rgb(114, 205, 106) */
+$C3-color: 227, 252, 225; /* rgb(227, 252, 225) */
+$W1-color: 179, 77, 0; /* rgb(179, 77, 0) */
+$W2-color: 255, 168, 5; /* rgb(255, 168, 5) */
+$W3-color: 255, 240, 203; /* rgb(255, 240, 203) */
+$E1-color: 212, 37, 37; /* rgb(212, 37, 37) */
+$E2-color: 240, 106, 106; /* rgb(240, 106, 106) */
+$E3-color: 255, 237, 237; /* rgb(255, 237, 237) */
+
+// Chart Colors
+// Light Mode Colors
+$bright-color-chart-0: 98, 162, 228; /* rgb(98, 162, 228) */
+$bright-color-chart-1: 223, 134, 221; /* rgb(204, 112, 203) */
+$bright-color-chart-2: 155, 181, 88; /* rgb(145, 181, 52) */
+$bright-color-chart-3: 244, 127, 106; /* rgb(244, 127, 106) */
+$bright-color-chart-4: 230, 148, 46; /* rgb(230, 148, 46) */
+$bright-color-chart-5: 44, 173, 168; /* rgb(44, 173, 168) */
+$bright-color-chart-6: 230, 106, 143; /* rgb(230, 106, 143) */
+$bright-color-chart-7: 59, 175, 111; /* rgb(59, 175, 111) */
+$bright-color-chart-8: 176, 176, 176; /* rgb(139, 146, 155) */
+$bright-chart-colors: (
+  0: $bright-color-chart-0,
+  1: $bright-color-chart-1,
+  2: $bright-color-chart-2,
+  3: $bright-color-chart-3,
+  4: $bright-color-chart-4,
+  5: $bright-color-chart-5,
+  6: $bright-color-chart-6,
+  7: $bright-color-chart-7,
+  8: $bright-color-chart-8,
+);
+
+//Dark Mode Colors
+$dark-color-chart-0: 98, 162, 228; /* rgb(98, 162, 228) */
+$dark-color-chart-1: 223, 134, 221; /* rgb(204, 112, 203) */
+$dark-color-chart-2: 155, 181, 88; /* rgb(145, 181, 52) */
+$dark-color-chart-3: 244, 127, 106; /* rgb(244, 127, 106) */
+$dark-color-chart-4: 230, 148, 46; /* rgb(230, 148, 46) */
+$dark-color-chart-5: 44, 173, 168; /* rgb(44, 173, 168) */
+$dark-color-chart-6: 230, 106, 143; /* rgb(230, 106, 143) */
+$dark-color-chart-7: 59, 175, 111; /* rgb(59, 175, 111) */
+$dark-color-chart-8: 176, 176, 176; /* rgb(139, 146, 155) */
+$dark-chart-colors: (
+  0: $dark-color-chart-0,
+  1: $dark-color-chart-1,
+  2: $dark-color-chart-2,
+  3: $dark-color-chart-3,
+  4: $dark-color-chart-4,
+  5: $dark-color-chart-5,
+  6: $dark-color-chart-6,
+  7: $dark-color-chart-7,
+  8: $dark-color-chart-8,
+);
+
+// Box Shadows
+$box-shadow-small: 7px;
+$box-shadow-medium: 15px;
+$box-shadow-large: 40px;
+
+// Button Contexts
+// Light Mode Colors
+$bright-btn-primary: $S1-color; /* rgb(149, 54, 83) */
+$bright-btn-primary-contrast: $N7-color; /* rgb(255,255,255) */
+$bright-btn-secondary: $S1-color; /* rgb(149, 54, 83) */
+$bright-btn-secondary-contrast: $N7-color; /* rgb(255,255,255) */
+
+// Dark Mode Colors
+$dark-btn-primary: $S2-color; /* rgb(187, 84, 115) */
+$dark-btn-primary-contrast: $N7-color; /* rgb(255,255,255) */
+
+// Backdrop context
+// Light Mode Colors
+$bright-backdrop-color-bg: $P7-color; /* rgb(246, 249, 252) */
+$bright-backdrop-color-contrast-main: $N1-color; /* rgb(23, 36, 55) */
+$bright-backdrop-color-contrast-alternate: $P3-color; /* rgb(38, 112, 187) */
+$bright-backdrop-color-contrast-highlight: $P3-color; /* rgb(38, 112, 187) */
+$bright-backdrop-color-contrast-light: $N3-color; /* rgb(100, 109, 122) */
+$bright-backdrop-color-contrast-disabled: $N3-color; /* rgb(100, 109, 122) */
+$bright-backdrop-color-contrast-warning: $W1-color; /* rgb(179, 77, 0) */
+$bright-backdrop-color-contrast-error: $E1-color; /* rgb(212, 37, 37) */
+$bright-backdrop-color-contrast-confirm: $C1-color; /* rgb(43, 128, 35) */
+$bright-backdrop-color-bg-emphasis-light: $P6-color; /* rgb(216, 229, 243) */
+$bright-backdrop-color-bg-emphasis-strong: $P5-color; /* rgb(165, 197, 230) */
+$bright-backdrop-color-bg-emphasis-strongest: $P3-color; /* rgb(38, 112, 187) */
+$bright-backdrop-color-contrast-emphasis-light: $N1-color; /* rgb(23, 36, 55) */
+$bright-backdrop-color-contrast-emphasis-strong: $N1-color; /* rgb(23, 36, 55) */
+$bright-backdrop-color-contrast-emphasis-strongest: $N7-color; /* rgb(255,255,255) */
+$bright-backdrop-border-color: $N4-color; /* rgb(139, 146, 155) */
+$bright-backdrop-border-color-light: $N6-color; /* rgb(216, 219, 222) */
+$bright-backdrop-shadow-color-small: rgba(0, 0, 0, 0.15);
+$bright-backdrop-shadow-color-medium: rgba(0, 0, 0, 0.25);
+$bright-backdrop-shadow-color-large: rgba(0, 0, 0, 0.3);
+$bright-backdrop-shadow-color-inset: rgba(0, 0, 0, 0.15);
+$bright-backdrop-focus: $P4-color; /* rgb(99, 157, 217) */
+
+// Dark Mode Colors
+$dark-backdrop-color-bg: $N1-color; /* rgb(23, 36, 55) */
+$dark-backdrop-color-contrast-main: $N6-color; /* rgb(216, 219, 222) */
+$dark-backdrop-color-contrast-alternate: $P4-color; /* rgb(99, 157, 217) */
+$dark-backdrop-color-contrast-highlight: $P4-color; /* rgb(99, 157, 217) */
+$dark-backdrop-color-contrast-light: $N5-color; /* rgb(178, 182, 188) */
+$dark-backdrop-color-contrast-disabled: $N5-color; /* rgb(178, 182, 188) */
+$dark-backdrop-color-contrast-warning: $W2-color; /* rgb(255, 168, 5) */
+$dark-backdrop-color-contrast-error: $E2-color; /* rgb(240, 106, 106) */
+$dark-backdrop-color-contrast-confirm: $C2-color; /* rgb(114, 205, 106) */
+$dark-backdrop-color-bg-emphasis-light: $N2-color; /* rgb(62, 73, 88) */
+$dark-backdrop-color-bg-emphasis-strong: $N3-color; /* rgb(100, 109, 122) */
+$dark-backdrop-color-bg-emphasis-strongest: $P3-color; /* rgb(38, 112, 187) */
+$dark-backdrop-color-contrast-emphasis-light: $N6-color; /* rgb(216, 219, 222) */
+$dark-backdrop-color-contrast-emphasis-strong: $N6-color; /* rgb(216, 219, 222) */
+$dark-backdrop-color-contrast-emphasis-strongest: $N7-color; /* rgb(255,255,255) */
+$dark-backdrop-border-color: $N4-color; /* rgb(139, 146, 155) */
+$dark-backdrop-border-color-light: $N3-color; /* rgb(100, 109, 122) */
+$dark-backdrop-shadow-color-small: rgba(0, 0, 0, 0.5);
+$dark-backdrop-shadow-color-medium: rgba(0, 0, 0, 0.5);
+$dark-backdrop-shadow-color-large: rgba(0, 0, 0, 0.5);
+$dark-backdrop-shadow-color-inset: getSCSSColor($P4-color);
+$dark-backdrop-focus: $P4-color; /* rgb(99, 157, 217) */
+
+// Surface Color Pallete
+// Light Mode Colors
+$bright-surface-color-bg: $N7-color; /* rgb(255,255,255) */
+$bright-surface-color-contrast-main: $N1-color; /* rgb(23, 36, 55) */
+$bright-surface-color-contrast-alternate: $S1-color; /* rgb(149, 54, 83) */
+$bright-surface-color-contrast-highlight: $P3-color; /* rgb(38, 112, 187) */
+$bright-surface-color-contrast-light: $N3-color; /* rgb(100, 109, 122) */
+$bright-surface-color-contrast-disabled: $N3-color; /* rgb(100, 109, 122) */
+$bright-surface-color-contrast-warning: $W1-color; /* rgb(179, 77, 0) */
+$bright-surface-color-contrast-error: $E1-color; /* rgb(212, 37, 37) */
+$bright-surface-color-accent: $N7-color; /* rgb(255,255,255) */
+$bright-surface-color-bg-emphasis-light: $P6-color; /* rgb(216, 229, 243) */
+$bright-surface-color-bg-emphasis-strong: $P5-color; /* rgb(165, 197, 230) */
+$bright-surface-color-bg-emphasis-strongest: $P3-color; /* rgb(38, 112, 187) */
+$bright-surface-color-contrast-emphasis-light: $N1-color; /* rgb(23, 36, 55) */
+$bright-surface-color-contrast-emphasis-strong: $N1-color; /* rgb(23, 36, 55) */
+$bright-surface-color-contrast-emphasis-strongest: $N7-color; /* rgb(255,255,255) */
+$bright-surface-border-color: $N4-color; /* rgb(139, 146, 155) */
+$bright-surface-border-color-light: $N6-color; /* rgb(216, 219, 222) */
+$bright-surface-shadow-color-small: rgba(0, 0, 0, 0.15);
+$bright-surface-shadow-color-medium: rgba(0, 0, 0, 0.25);
+$bright-surface-shadow-color-large: rgba(0, 0, 0, 0.3);
+$bright-surface-shadow-color-inset: rgba(0, 0, 0, 0.15);
+$bright-surface-focus: $P4-color; /* rgb(99, 157, 217) */
+
+// Dark Mode Colors
+$dark-surface-color-bg: $P1-color; /* rgb(28, 46, 72) */
+$dark-surface-color-contrast-main: $N6-color; /* rgb(216, 219, 222) */
+$dark-surface-color-contrast-alternate: $N6-color; /* rgb(216, 219, 222) */
+$dark-surface-color-contrast-highlight: $P4-color; /* rgb(99, 157, 217) */
+$dark-surface-color-contrast-light: $N5-color; /* rgb(178, 182, 188) */
+$dark-surface-color-contrast-disabled: $N5-color; /* rgb(178, 182, 188) */
+$dark-surface-color-contrast-warning: $W2-color; /* rgb(255, 168, 5) */
+$dark-surface-color-contrast-error: $E2-color; /* rgb(240, 106, 106) */
+$dark-surface-color-accent: $P2-color; /* rgb(33, 61, 98) */
+$dark-surface-color-bg-emphasis-light: $N2-color; /* rgb(62, 73, 88) */
+$dark-surface-color-bg-emphasis-strong: $N3-color; /* rgb(100, 109, 122) */
+$dark-surface-color-bg-emphasis-strongest: $P3-color; /* rgb(38, 112, 187) */
+$dark-surface-color-contrast-emphasis-light: $N6-color; /* rgb(216, 219, 222) */
+$dark-surface-color-contrast-emphasis-strong: $N7-color; /* rgb(255,255,255) */
+$dark-surface-color-contrast-emphasis-strongest: $N7-color; /* rgb(255,255,255) */
+$dark-surface-border-color: $N4-color; /* rgb(139, 146, 155) */
+$dark-surface-border-color-light: $N3-color; /* rgb(100, 109, 122) */
+$dark-surface-shadow-color-small: rgba(0, 0, 0, 0.5);
+$dark-surface-shadow-color-medium: rgba(0, 0, 0, 0.5);
+$dark-surface-shadow-color-large: rgba(0, 0, 0, 0.5);
+$dark-surface-shadow-color-inset: getSCSSColor($P4-color);
+$dark-surface-focus: $P4-color; /* rgb(99, 157, 217) */
+
+// Selection Color Pallete
+// Light Mode Colors
+$bright-selection-color-bg: $P3-color; /* rgb(38, 112, 187) */
+$bright-selection-color-contrast-main: $N7-color; /* rgb(255,255,255) */
+$bright-selection-color-contrast-alternate: $N7-color; /* rgb(255,255,255) */
+$bright-selection-color-contrast-highlight: $N7-color; /* rgb(255,255,255) */
+$bright-selection-color-contrast-light: $N7-color; /* rgb(255,255,255) */
+$bright-selection-color-contrast-disabled: $N7-color; /* rgb(255,255,255) */
+$bright-selection-shadow-color-small: rgba(0, 0, 0, 0.15);
+$bright-selection-shadow-color-medium: rgba(0, 0, 0, 0.25);
+$bright-selection-shadow-color-large: rgba(0, 0, 0, 0.3);
+$bright-selection-shadow-color-inset: rgba(0, 0, 0, 0.5);
+$bright-selection-focus: $N7-color; /* rgb(255,255,255) */
+
+// Dark Mode Colors
+$dark-selection-color-bg: $P3-color; /* rgb(38, 112, 187) */
+$dark-selection-color-contrast-main: $N7-color; /* rgb(255,255,255) */
+$dark-selection-color-contrast-alternate: $N7-color; /* rgb(255,255,255) */
+$dark-selection-color-contrast-highlight: $N7-color; /* rgb(255,255,255) */
+$dark-selection-color-contrast-light: $N7-color; /* rgb(255,255,255) */
+$dark-selection-color-contrast-disabled: $N7-color; /* rgb(255,255,255) */
+$dark-selection-shadow-color-small: rgba(0, 0, 0, 0.5);
+$dark-selection-shadow-color-medium: rgba(0, 0, 0, 0.5);
+$dark-selection-shadow-color-large: rgba(0, 0, 0, 0.5);
+$dark-selection-shadow-color-inset: getSCSSColor($P4-color);
+$dark-selection-focus: $N7-color; /* rgb(255,255,255) */
+
+// Gradient Color Pallete
+// Light Mode Colors
+$bright-gradient-color-bg: linear-gradient(
+  0deg,
+  #{getSCSSColor($P3-color)},
+  rgb(130, 196, 222)
+); /* rgb(38, 112, 187) */
+$bright-gradient-color-contrast-main: $N7-color; /* rgb(255,255,255) */
+$bright-gradient-color-bg-emphasis-light: $N7-color; /* rgb(255,255,255) @ 50% */
+$bright-gradient-color-contrast-emphasis-light: $N1-color; /* rgb(23, 36, 55) */
+$bright-gradient-color-bg-emphasis-strong: $P7-color; /* rgb(246, 249, 252) */
+$bright-gradient-color-contrast-emphasis-strong: $P3-color; /* rgb(38, 112, 187) */
+
+$bright-gradient-color-contrast-alternate: $N7-color; /* rgb(255,255,255) */
+$bright-gradient-color-contrast-highlight: $N7-color; /* rgb(255,255,255) */
+$bright-gradient-color-contrast-light: $N7-color; /* rgb(255,255,255) */
+$bright-gradient-color-contrast-disabled: $N7-color; /* rgb(255,255,255) */
+$bright-gradient-focus: $N7-color; /* rgb(255,255,255) */
+
+// Dark Mode Colors
+$dark-gradient-color-bg: linear-gradient(
+  0deg,
+  #{getSCSSColor($N1-color)},
+  #{getSCSSColor($P3-color)}
+); /* rgb(23, 36, 55), rgb(38, 112, 187) */
+$dark-gradient-color-contrast-main: $P6-color; /* rgb(216, 229, 243) */
+$dark-gradient-color-bg-emphasis-light: $N7-color; /* rgb(255,255,255) @ 50% */
+$dark-gradient-color-contrast-emphasis-light: $N7-color; /* rgb(255,255,255) */
+$dark-gradient-color-bg-emphasis-strong: $N1-color; /* rgb(23, 36, 55) */
+$dark-gradient-color-contrast-emphasis-strong: $N6-color; /* rgb(216, 219, 222) */
+$dark-gradient-focus: $N7-color; /* rgb(255,255,255) */
+
+// Confirmation Color Pallete
+// Light Mode Colors
+$bright-confirmation-color-bg: $C3-color; /* rgb(227, 252, 225) */
+$bright-confirmation-color-accent: $C2-color; /* rgb(114, 205, 106) */
+$bright-confirmation-color-contrast-main: $N1-color; /* rgb(23, 36, 55) */
+$bright-confirmation-color-contrast-highlight: $P3-color; /* rgb(38, 112, 187) */
+
+// Dark Mode Colors
+$dark-confirmation-color-bg: $N2-color; /* rgb(62, 73, 88) */
+$dark-confirmation-color-accent: $C2-color; /* rgb(114, 205, 106) */
+$dark-confirmation-color-contrast-main: $N6-color; /* rgb(216, 219, 222) */
+$dark-confirmation-color-contrast-highlight: $P5-color; /* rgb(165, 197, 230) */
+
+// Warning Color Pallete
+// Light Mode Colors
+$bright-warning-color-bg: $W3-color; /* rgb(255, 240, 203) */
+$bright-warning-color-accent: $W2-color; /* rgb(255, 168, 5) */
+$bright-warning-color-contrast-main: $N1-color; /* rgb(23, 36, 55) */
+$bright-warning-color-contrast-highlight: $P3-color; /* rgb(38, 112, 187) */
+
+// Dark Mode Colors
+$dark-warning-color-bg: $N2-color; /* rgb(62, 73, 88) */
+$dark-warning-color-accent: $W2-color; /* rgb(255, 168, 5) */
+$dark-warning-color-contrast-main: $N6-color; /* rgb(216, 219, 222) */
+$dark-warning-color-contrast-highlight: $P5-color; /* rgb(165, 197, 230) */
+
+// Error Color Pallete
+// Light Mode Colors
+$bright-error-color-bg: $E3-color; /* rgb(255, 237, 237) */
+$bright-error-color-accent: $E2-color; /* rgb(240, 106, 106) */
+$bright-error-color-contrast-main: $N1-color; /* rgb(23, 36, 55) */
+$bright-error-color-contrast-highlight: $P3-color; /* rgb(38, 112, 187) */
+
+// Dark Mode Colors
+$dark-error-color-bg: $N2-color; /* rgb(62, 73, 88) */
+$dark-error-color-accent: $E2-color; /* rgb(240, 106, 106) */
+$dark-error-color-contrast-main: $N6-color; /* rgb(216, 219, 222) */
+$dark-error-color-contrast-highlight: $P5-color; /* rgb(165, 197, 230) */
+
+// Info Color Pallete
+// Light Mode Colors
+$bright-info-color-bg: $P7-color; /* rgb(246, 249, 252) */
+$bright-info-color-accent: $P4-color; /* rgb(99, 157, 217) */
+$bright-info-color-contrast-main: $N1-color; /* rgb(23, 36, 55) */
+$bright-info-color-contrast-highlight: $P3-color; /* rgb(99, 157, 217) */
+$bright-info-color-contrast-warning: $W1-color;
+$bright-info-color-contrast-confirm: $C1-color;
+$bright-info-color-contrast-error: $E1-color; /* rgb(212, 37, 37) */
+
+// Dark Mode Colors
+$dark-info-color-bg: $N2-color; /* rgb(62, 73, 88) */
+$dark-info-color-accent: $P4-color; /* rgb(99, 157, 217) */
+$dark-info-color-contrast-main: $N6-color; /* rgb(216, 219, 222) */
+$dark-info-color-contrast-highlight: $P5-color; /* rgb(99, 157, 217) */
+$dark-info-color-contrast-warning: $W2-color; /* rgb(255, 168, 5) */
+$dark-info-color-contrast-confirm: $C2-color; /* rgb(114, 205, 106) */
+$dark-info-color-contrast-error: $E2-color; /* rgb(240, 106, 106) */
+
+// Pill Color Context acording to design guide
+// Light Mode Colors
+$bright-pill-color-bg: $P7-color; /* rgb(255,255,255) */
+$bright-pill-color-contrast-main: $N1-color; /* rgb(23, 36, 55) */
+$bright-pill-color-bg-emphasis-light: $P6-color; /* rgb(216, 229, 243) */
+$bright-pill-color-contrast-emphasis-light: $N1-color; /* rgb(23, 36, 55) */
+$bright-pill-color-bg-emphasis-strong: $P5-color; /* rgb(165, 197, 230) */
+$bright-pill-color-contrast-emphasis-strong: $N1-color; /* rgb(23, 36, 55) */
+$bright-pill-color-bg-emphasis-strongest: $P3-color; /* rgb(38, 112, 187) */
+$bright-pill-color-contrast-emphasis-strongest: $N7-color; /* rgb(255,255,255) */
+$bright-pill-color-color-border-dropzone: $N4-color; /* rgb(139, 146, 155) */
+$bright-pill-color-bg-warning: $W3-color; /* rgb(255, 240, 203) */
+$bright-pill-color-color-border-warning: $W3-color; /* rgb(255, 240, 203) */
+
+// Dark Mode Colors
+$dark-pill-color-bg: $N2-color; /* rgb(62, 73, 88) */
+$dark-pill-color-contrast-main: $N6-color; /* rgb(216, 219, 222) */
+$dark-pill-color-bg-emphasis-light: $N3-color; /* rgb(100, 109, 122) */
+$dark-pill-color-contrast-emphasis-light: $N6-color; /* rgb(216, 219, 222) */
+$dark-pill-color-bg-emphasis-strong: $N4-color; /* rgb(139, 146, 155) */
+$dark-pill-color-contrast-emphasis-strong: $N7-color; /* rgb(255,255,255) */
+$dark-pill-color-bg-emphasis-strongest: $P3-color; /* rgb(38, 112, 187) */
+$dark-pill-color-contrast-emphasis-strongest: $N7-color; /* rgb(255,255,255) */
+$dark-pill-color-color-border-dropzone: $N4-color; /* rgb(139, 146, 155) */
+$dark-pill-color-bg-warning: $N2-color; /* rgb(62, 73, 88) */
+$dark-pill-color-color-border-warning: $W3-color; /* rgb(255, 240, 203) */
+
+// Pill Color Pallete with type condition, operator and sub-pill and state default, hover, selected
+// Condition
+// Light Mode Colors
+$bright-pill-condition-default-color-bg: $bright-pill-color-bg-emphasis-light; // $P6-color;
+$bright-pill-condition-default-color-contrast-main: $bright-pill-color-contrast-emphasis-light; // $N1-color;
+$bright-pill-condition-default-color-border: $bright-pill-color-bg-emphasis-light; // $P6-color;
+$bright-pill-condition-hover-color-bg: $bright-pill-color-bg-emphasis-strong; // $P5-color;
+$bright-pill-condition-hover-color-contrast-main: $bright-pill-color-contrast-emphasis-strong; // $N1-color;
+$bright-pill-condition-hover-color-color-border: $bright-pill-color-bg-emphasis-strong; // $P5-color;
+
+// Dark Mode Colors
+$dark-pill-condition-default-color-bg: $dark-pill-color-bg-emphasis-light; // $N3-color;
+$dark-pill-condition-default-color-contrast-main: $dark-pill-color-contrast-emphasis-light; // $N6-color;
+$dark-pill-condition-default-color-border: $dark-pill-color-bg-emphasis-light; // $N3-color;
+$dark-pill-condition-hover-color-bg: $dark-pill-color-bg-emphasis-strong; // $N4-color;
+$dark-pill-condition-hover-color-contrast-main: $dark-pill-color-contrast-emphasis-strong; // $N7-color;
+$dark-pill-condition-hover-color-color-border: $dark-pill-color-bg-emphasis-strong; // $N4-color;
+
+// Operator
+// Light Mode Colors
+$bright-pill-operator-default-color-bg: $bright-pill-color-bg; // $P7-color;
+$bright-pill-operator-default-color-contrast-main: $bright-pill-color-contrast-main; // $N1-color;
+$bright-pill-operator-default-color-border: $bright-pill-color-bg; // $P7-color;
+$bright-pill-operator-hover-color-bg: $bright-pill-color-bg-emphasis-strong; // $P5-color;
+$bright-pill-operator-hover-color-contrast-main: $bright-pill-color-contrast-emphasis-strong; // $N1-color;
+$bright-pill-operator-hover-color-color-border: $bright-pill-color-bg-emphasis-strong; // $P5-color;
+
+// Dark Mode Colors
+$dark-pill-operator-default-color-bg: $dark-pill-color-bg; // $N2-color;
+$dark-pill-operator-default-color-contrast-main: $dark-pill-color-contrast-main; // $N6-color;
+$dark-pill-operator-default-color-border: $dark-pill-color-bg; // $N2-color;
+$dark-pill-operator-hover-color-bg: $dark-pill-color-bg-emphasis-strong; // $N4-color;
+$dark-pill-operator-hover-color-contrast-main: $dark-pill-color-contrast-emphasis-strong; // $N7-color;
+$dark-pill-operator-hover-color-color-border: $dark-pill-color-bg-emphasis-strong; // $N4-color;
+
+// Sub-pill
+// Light Mode Colors
+$bright-pill-sub-pill-default-color-bg: $bright-pill-color-bg-emphasis-light; // $P6-color;
+$bright-pill-sub-pill-default-color-contrast-main: $bright-pill-color-contrast-emphasis-light; // $N1-color;
+$bright-pill-sub-pill-default-color-border: $bright-pill-color-bg-emphasis-light; // $P6-color;
+$bright-pill-sub-pill-hover-color-bg: $bright-pill-color-bg; // $P7-color;
+$bright-pill-sub-pill-hover-color-contrast-main: $bright-pill-color-contrast-main; // $N1-color;
+$bright-pill-sub-pill-hover-color-color-border: $bright-pill-color-bg; // $P7-color;
+
+// Dark Mode Colors
+$dark-pill-sub-pill-default-color-bg: $dark-pill-color-bg-emphasis-light; // $N3-color;
+$dark-pill-sub-pill-default-color-contrast-main: $dark-pill-color-contrast-emphasis-light; // $N6-color;
+$dark-pill-sub-pill-default-color-border: $dark-pill-color-bg-emphasis-light; // $N3-color;
+$dark-pill-sub-pill-hover-color-bg: $dark-pill-color-bg; // $N2-color;
+$dark-pill-sub-pill-hover-color-contrast-main: $dark-pill-color-contrast-main; // $N6-color;
+$dark-pill-sub-pill-hover-color-color-border: $dark-pill-color-bg; // $N2-color;
+
+// Buttons Color Pallete with type Primary, Secondary and Tertiary and state default, hover and disabled
+// Primary
+// Light Mode Colors
+$bright-primary-initial-color-contrast-main: $N7-color; /* rgb(255,255,255) */
+$bright-primary-initial-color-bg: $S1-color; /* rgb(149, 54, 83) */
+$bright-primary-initial-color-border: $bright-primary-initial-color-bg; /* rgb(149, 54, 83) */
+$bright-primary-hover-color-contrast-main: $S1-color; /* rgb(149, 54, 83) */
+$bright-primary-hover-color-bg: $N7-color; /* rgb(255,255,255) */
+$bright-primary-hover-color-border: $bright-primary-hover-color-contrast-main; /* rgb(149, 54, 83) */
+$bright-primary-disabled-color-contrast-main: $N5-color; /* rgb(178, 182, 188) */
+$bright-primary-disabled-color-bg: $N6-color; /* rgb(216, 219, 222) */
+$bright-primary-disabled-color-border: $bright-primary-disabled-color-bg; /* rgb(216, 219, 222) */
+
+// Dark Mode Colors
+$dark-primary-initial-color-contrast-main: $N7-color; /* rgb(255,255,255) */
+$dark-primary-initial-color-bg: $S2-color; /* rgb(187, 84, 115) */
+$dark-primary-initial-color-border: $dark-primary-initial-color-bg; /* rgb(187, 84, 115) */
+$dark-primary-hover-color-contrast-main: $S2-color; /* rgb(187, 84, 115) */
+$dark-primary-hover-color-bg: $N7-color; /* rgb(255,255,255) */
+$dark-primary-hover-color-border: $dark-primary-hover-color-bg; /* rgb(255,255,255) */
+$dark-primary-disabled-color-contrast-main: $N3-color; /* rgb(100, 109, 122) */
+$dark-primary-disabled-color-bg: transparent; /* rgb(0,0,0,0) */
+$dark-primary-disabled-color-border: $dark-primary-disabled-color-contrast-main; /* rgb(100, 109, 122) */
+
+// Secondary
+// Light Mode Colors
+$bright-secondary-initial-color-contrast-main: $P3-color; /* rgb(38, 112, 187) */
+$bright-secondary-initial-color-bg: $N7-color; /* rgb(255,255,255) */
+$bright-secondary-initial-color-border: $N4-color; /* rgb(139, 146, 155) */
+$bright-secondary-hover-color-contrast-main: $P2-color; /* rgb(33, 61, 98) */
+$bright-secondary-hover-color-bg: $P6-color; /* rgb(216, 229, 243) */
+$bright-secondary-hover-color-border: $bright-secondary-hover-color-contrast-main; /* rgb(33, 61, 98) */
+$bright-secondary-disabled-color-contrast-main: $N5-color; /* rgb(178, 182, 188) */
+$bright-secondary-disabled-color-bg: transparent; /* rgb(0,0,0,0) */
+$bright-secondary-disabled-color-border: $N5-color; /* rgb(178, 182, 188) */
+
+// Dark Mode Colors
+$dark-secondary-initial-color-contrast-main: $P4-color; /* rgb(99, 157, 217) */
+$dark-secondary-initial-color-bg: transparent; /* rgb(0, 0, 0, 0) */
+$dark-secondary-initial-color-border: $N5-color; /* rgb(178, 182, 188) */
+$dark-secondary-hover-color-contrast-main: $N7-color; /* rgb(255,255,255) */
+$dark-secondary-hover-color-bg: $N3-color; /* rgb(100, 109, 122) */
+$dark-secondary-hover-color-border: $dark-secondary-hover-color-contrast-main; /* rgb(255,255,255) */
+$dark-secondary-disabled-color-contrast-main: $N3-color; /* rgb(100, 109, 122) */
+$dark-secondary-disabled-color-bg: transparent; /* rgb(0,0,0,0) */
+$dark-secondary-disabled-color-border: $dark-secondary-disabled-color-contrast-main; /* rgb(100, 109, 122) */
+
+// Tertiary
+// Light Mode Colors
+$bright-tertiary-initial-color-contrast-main: $P3-color; /* rgb(38, 112, 187) */
+$bright-tertiary-initial-color-bg: transparent; /* rgb(0,0,0,0) */
+$bright-tertiary-initial-color-border: $bright-tertiary-initial-color-bg; /* rgb(0,0,0,0) */
+$bright-tertiary-hover-color-contrast-main: $P2-color; /* rgb(33, 61, 98) */
+$bright-tertiary-hover-color-bg: $P6-color; /* rgb(216, 229, 243) */
+$bright-tertiary-hover-color-border: $bright-tertiary-hover-color-bg; /* rgb(216, 229, 243) */
+$bright-tertiary-disabled-color-contrast-main: $N5-color; /* rgb(178, 182, 188) */
+$bright-tertiary-disabled-color-bg: transparent; /* rgb(0,0,0,0) */
+$bright-tertiary-disabled-color-border: $bright-tertiary-disabled-color-bg; /* rgb(0,0,0,0) */
+
+// Dark Mode Colors
+$dark-tertiary-initial-color-contrast-main: $P4-color; /* rgb(99, 157, 217) */
+$dark-tertiary-initial-color-bg: transparent; /* rgb(0,0,0,0) */
+$dark-tertiary-initial-color-border: $dark-tertiary-initial-color-bg; /* rgb(0,0,0,0) */
+$dark-tertiary-hover-color-contrast-main: $N3-color; /* rgb(100, 109, 122) */
+$dark-tertiary-hover-color-bg: $N7-color; /* rgb(255,255,255) */
+$dark-tertiary-hover-color-border: $dark-tertiary-hover-color-bg; /* rgb(255,255,255 */
+$dark-tertiary-disabled-color-contrast-main: $N3-color; /* rgb(100, 109, 122) */
+$dark-tertiary-disabled-color-bg: transparent; /* rgb(0,0,0,0) */
+$dark-tertiary-disabled-color-border: $dark-tertiary-disabled-color-bg; /* rgb(0,0,0,0) */

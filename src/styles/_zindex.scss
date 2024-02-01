@@ -1,0 +1,15 @@
+$negative-zindex: -1;
+$default-zindex: 0;
+$shallow-zindex: 1;
+/** Used for things that are really raised just _slightly_ above some content,
+ *  typically areas in the current working area */
+$raised-zindex: $shallow-zindex + 1;
+$pill-negate-zindex: $shallow-zindex + 3;
+/** Should be used for the site header only */
+$header-zindex: $shallow-zindex + 4;
+$dropdown-zindex: $shallow-zindex + 7;
+/** Used for things that overlay a large chunk of the content of the site */
+$overlay-zindex: $shallow-zindex + 9;
+$tooltip-zindex: $shallow-zindex + 98; // FIXME - this doesn't work for tooltips on modals
+$modal-zindex: $shallow-zindex + 998;
+$top-layer-zindex: 9999;

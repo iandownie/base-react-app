@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Counter from '../components/counter/Counter'
+import Counter from '../components/common/atoms/molecules/counter/Counter'
 
 export const Home: React.FC = () => {
   return (

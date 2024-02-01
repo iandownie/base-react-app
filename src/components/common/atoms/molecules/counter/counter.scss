@@ -1,0 +1,11 @@
+@import '../../../../../styles/common';
+
+.wrapper {
+  border: var(--border);
+  padding: $space-200;
+  .group {
+    display: flex;
+    align-items: center;
+    gap: $space-100;
+  }
+}

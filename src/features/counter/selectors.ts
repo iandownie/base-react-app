@@ -1,3 +1,3 @@
-import { SystemState } from './types'
+import { IApplicationState } from '../../data/store-type'
 
-export const getCountValue = (state: SystemState) => state.count.value
+export const getCountValue = (state: IApplicationState) => state.count.value

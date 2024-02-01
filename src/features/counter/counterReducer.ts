@@ -17,3 +17,11 @@ export default (state = initialState, action: CounterActionTypes) => {
       return state
   }
 }
+
+declare module '../../data/store-type' {
+  interface IApplicationState {
+    count: {
+      value: number
+    }
+  }
+}
